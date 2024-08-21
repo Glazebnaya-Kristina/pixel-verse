@@ -1,0 +1,21 @@
+@use '../../shared/styles/mixins';
+
+.referrals {
+  display: grid;
+  row-gap: 18px;
+
+  @include mixins.break-point(xxl) {
+    grid-template-columns: 1.1fr 1fr;
+    column-gap: 24px;
+  }
+
+  &__cards,
+  &__card {
+    display: grid;
+    row-gap: 18px;
+
+    @include mixins.break-point(xxl) {
+      row-gap: 28px;
+    }
+  }
+}

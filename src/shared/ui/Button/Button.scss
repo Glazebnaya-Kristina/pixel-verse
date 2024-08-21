@@ -1,0 +1,40 @@
+@use '../../styles/mixins';
+
+.button {
+  $this: &;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 8px;
+  @include mixins.font-plexmix;
+  color: var(--color-purple);
+  font-size: 12px;
+  line-height: 18px;
+  cursor: pointer;
+  background: var(--color-blue-secondary);
+  transition: all var(--transition-time);
+  @include mixins.border-8bit(4px, var(--color-blue-thirdy));
+
+  @include mixins.break-point(xxl) {
+    padding: 11px 18px;
+    font-size: 18px;
+    line-height: 27px;
+    @include mixins.border-8bit(6px, var(--color-blue-thirdy));
+  }
+
+  &:active,
+  &:hover {
+    color: var(--color-blue-secondary);
+    background-color: var(--color-purple);
+    
+    @include mixins.border-8bit(4px, var(--color-purple));
+    
+    @include mixins.break-point(xxl) {
+      @include mixins.border-8bit(6px, var(--color-purple));
+    }
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+}

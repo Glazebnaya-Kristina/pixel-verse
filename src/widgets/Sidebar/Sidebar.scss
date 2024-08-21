@@ -1,0 +1,61 @@
+@use "../../shared/styles/mixins";
+
+.sidebar {
+  padding: 31px 24px 32px;
+  display: none;
+  background-color: var(--color-blue-secondary);
+  @include mixins.border-8bit(4px, var(--color-blue-thirdy), -1px);
+
+  @include mixins.break-point(xxl) {
+    position: fixed;
+    left: 32px;
+    top: 40px;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 80px);
+    width: 242px;
+  }
+
+  &--is-opened {
+    position: fixed;
+    top: -12px;
+    left: -12px;
+    bottom: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% + 12px);
+    width: calc(100% + 12px);
+    animation: slide-left .5s forwards;
+  }
+
+  &__logo {
+    margin: 0 auto;
+  }
+
+  &__navigation {
+    margin-top: 51px;
+  }
+  
+  &__footer {
+    margin-top: auto;
+  }
+  
+  &__game-link {
+    padding-left: 12px;
+    color: rgba(var(--color-white-rgb), 0.7);
+    @include mixins.font-pixel;
+    font-size: 14px;
+    line-height: 18px;
+    transition: color var(--transition-time);
+    
+    &:hover {
+      color: rgba(var(--color-white-rgb), 1);
+    }
+  }
+
+  &__social {
+    margin-top: 78px;
+    margin-left: 12px;
+  }
+}

@@ -1,0 +1,80 @@
+$screen-xxl: 1140px;
+
+@mixin break-point($size) {
+  @if $size == xxl {
+    @media (min-width: $screen-xxl) {
+      @content;
+    }
+  }
+}
+
+@mixin pseudo($content: '', $position: absolute, $display: block) {
+  content: $content;
+  display: $display;
+  position: $position;
+}
+
+@mixin font-pixel {
+  font-family: var(--font-pixel);
+}
+
+@mixin font-plexmix {
+  font-family: var(--font-plexmix);
+}
+
+@mixin hide-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+@mixin text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin placeholder {
+  &::placeholder {
+    @content;
+  }
+}
+
+@mixin placeholder-hidden {
+  &::placeholder {
+    color: transparent;
+  }
+}
+
+@mixin title {
+  color: rgb(var(--color-white-rgb));
+  font-size: 20px;
+  line-height: 26px;
+  @include font-pixel;
+  
+  @include break-point(xxl) {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}
+
+@mixin img {
+  object-fit: cover;
+  object-position: center center;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin inheritWidthAndHeight {
+  width: inherit;
+  height: inherit;
+}
+
+@mixin border-8bit($width, $color, $widthStart: $width) {
+  box-shadow: $widthStart 0 $color, -$width 0 $color, 0 (-$width) $color, 0 $width $color;
+}

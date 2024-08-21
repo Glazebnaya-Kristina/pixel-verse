@@ -1,0 +1,12 @@
+.clipboard-input {
+  display: block;
+  
+  &--success {
+    svg {
+      color: var(--color-green);
+      transform-origin: center;
+      transition: all var(--transition-time);
+      animation: grow 0.4s ease-in-out;
+    }
+  }
+}

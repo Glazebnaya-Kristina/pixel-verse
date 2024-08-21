@@ -1,0 +1,48 @@
+@use '../../../../shared/styles/mixins';
+
+.navigation {
+  $this: &;
+  
+  &__item {
+    margin-top: 15px;
+    cursor: pointer;
+    opacity: 0.7;
+    
+    &:first-child {
+      margin-top: 0;
+    }
+    
+    &:hover,
+    &--is-active {
+      background: var(--color-blue-thirdy);
+      @include mixins.border-8bit(3px, var(--color-blue-thirdy));
+      opacity: 1;
+      
+      #{$this}__link {
+        color: var(--color-purple);
+      }
+    }
+    
+    &:hover:not(&--is-active) {
+      #{$this}__link {
+        color: rgb(var(--color-white-rgb));
+      }
+    }
+  }
+  
+  &__link {
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    color: rgb(var(--color-white-rgb));
+    @include mixins.font-pixel;
+    font-size: 16px;
+    transition: color var(--transition-time);
+  }
+  
+  &__icon {
+    display: flex;
+    margin-right: 8px;
+    flex-grow: 0;
+  }
+}

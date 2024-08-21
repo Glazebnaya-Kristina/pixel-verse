@@ -1,0 +1,27 @@
+@use "../../../../shared/styles/mixins";
+
+.referral-invite {
+  &__title {
+    @include mixins.title;
+  }
+  
+  &__wrapper-field {
+    margin-top: 25px;
+    display: grid;
+    row-gap: 25px;
+
+    @include mixins.break-point(xxl) {
+      row-gap: 32px;
+      margin-top: 48px;
+    }
+  }
+  
+  &__text {
+    color: rgba(var(--color-white-rgb), 0.6);
+    margin-top: 35px;
+    
+    @include mixins.break-point(xxl) {
+      margin-top: 44px;
+    }
+  }
+}

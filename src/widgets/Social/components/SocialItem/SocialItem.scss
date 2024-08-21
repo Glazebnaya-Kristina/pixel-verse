@@ -1,0 +1,21 @@
+@use "../../../../shared/styles/mixins";
+
+.social {
+  &__link {
+    padding: 5px;
+    width: 29px;
+    height: 29px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(var(--color-white-rgb));
+    background-color: var(--color-blue-thirdy);
+    transition: color var(--transition-time);
+    @include mixins.border-8bit(3px, var(--color-blue-thirdy));
+
+    &:active,
+    &:hover {
+      color: var(--color-purple);
+    }
+  }
+}

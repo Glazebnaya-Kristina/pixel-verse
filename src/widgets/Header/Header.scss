@@ -1,0 +1,31 @@
+@use "../../shared/styles/mixins";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+
+  @include mixins.break-point(xxl) {
+    flex-wrap: nowrap;
+    column-gap: 40px;
+  }
+
+  &__progress {
+    width: 100%;
+    margin-top: 20px;
+    order: 3;
+
+    @include mixins.break-point(xxl) {
+      margin-top: 0;
+      order: 1;
+    }
+  }
+
+  &__button {
+    @include mixins.break-point(xxl) {
+      flex-shrink: 0;
+      order: 2;
+    }
+  }
+}
