@@ -1,0 +1,86 @@
+@use '../../styles/mixins';
+@use '../../styles/animations';
+
+.dialog-overlay {
+  background-color: rgba(#000, 0.6);
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dialog-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 100;
+  transform: translate(-50%, -50%);
+  padding: 17px 12px;
+  width: 90vw;
+  max-width: 450px;
+  max-height: 85vh;
+  color: var(--color-white);
+  background-color: var(--color-blue-secondary);
+  overflow: auto;
+  animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  @include mixins.border-8bit(4px, var(--color-blue-thirdy));
+  
+  @include mixins.break-point(xxl) {
+    padding: 24px 26px;
+    max-width: 820px;
+    @include mixins.border-8bit(6px, var(--color-blue-thirdy));
+  }
+  
+  &:focus {
+    outline: none;
+  }
+}
+
+.dialog-title {
+  padding-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 10px;
+  @include mixins.font-pixel;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 26px;
+  border-bottom: 1px solid var(--color-blue-thirdy);
+  
+  @include mixins.break-point(xxl) {
+    font-size: 24px;
+    line-height: 31px;
+  }
+}
+
+.dialog-inner-content {
+  margin-top: 16px;
+  
+  @include mixins.break-point(xxl) {
+    margin-top: 24px;
+  }
+}
+
+.dialog-button-close {
+  width: 33px;
+  height: 33px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  background-color: transparent;
+  @include mixins.border-8bit(4px, var(--color-blue-thirdy));
+  cursor: pointer;
+  transition: all var(--transition-time);
+  
+  &:hover {
+    @include mixins.border-8bit(4px, var(--color-purple));
+    background-color: var(--color-purple);
+  }
+  
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
